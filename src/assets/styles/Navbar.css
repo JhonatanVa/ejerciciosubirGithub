@@ -56,19 +56,77 @@
 }
 
 /* Diseño responsivo */
+.navbar__toggle {
+  display: none; /* Oculto por defecto en pantallas grandes */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .navbar {
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    align-items: center; /* Centra el logo y el botón de hamburguesa */
+  }
+
+  .navbar__toggle {
+    display: block; /* Mostrar en pantallas pequeñas */
+    order: 1; /* Mover el botón de hamburguesa después del logo */
+    margin-left: auto; /* Empujar a la derecha */
+  }
+
+  .navbar__menu {
+    display: none; /* Ocultar menú por defecto en pantallas pequeñas */
+    width: 100%;
+    order: 3; /* Colocar después del logo y el botón de hamburguesa */
+  }
+
+  .navbar__menu--open {
+    display: flex; /* Mostrar menú cuando está abierto */
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Centrar elementos del menú */
+    margin-top: 10px;
   }
 
   .navbar__menu ul {
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar__menu li {
+    width: 100%;
+  }
+
+  .navbar__menu a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #555; /* Separador opcional */
+  }
+
+  .navbar__menu a:hover {
+    background-color: #555;
   }
 
   .navbar__actions {
+    display: none; /* Ocultar acciones por defecto en pantallas pequeñas */
     width: 100%;
-    justify-content: space-between;
+    justify-content: center; /* Centrar acciones */
+    margin-top: 10px;
+    order: 4; /* Colocar después del menú */
+  }
+
+  .navbar__actions--open {
+    display: flex; /* Mostrar acciones cuando el menú está abierto */
+    flex-direction: column; /* Apilar acciones verticalmente */
+    align-items: center;
+  }
+
+  .navbar__search {
+    width: 80%;
+    margin-bottom: 10px;
   }
 }
