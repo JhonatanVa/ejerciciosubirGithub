@@ -13,22 +13,24 @@
   font-weight: bold;
 }
 
-.navbar__menu ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
+.navbar__menu {
+  display: flex; /* Asegura que los Links estén en línea */
+  gap: 15px; /* Añade espacio entre los Links */
 }
 
-.navbar__menu a {
+.navbar__menu a, /* Estilo para los Link directamente */
+.navbar__menu Link { /* Estilo también para el componente Link si es necesario */
   text-decoration: none;
   color: white;
   font-weight: 500;
+  padding: 5px 10px; /* Añade padding para más espacio alrededor del texto */
+  border-radius: 4px; /* Opcional: bordes redondeados */
 }
 
-.navbar__menu a:hover {
-  text-decoration: underline;
+.navbar__menu a:hover,
+.navbar__menu Link:hover {
+  text-decoration: none; /* Evita el subrayado si no se desea */
+  background-color: rgba(255, 255, 255, 0.1); /* Opcional: efecto hover sutil */
 }
 
 .navbar__actions {

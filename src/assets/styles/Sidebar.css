@@ -1,12 +1,44 @@
 /* Estilos para Sidebar.jsx */
 .sidebar {
-  width: 250px;
-  background-color: #f0f0f0; /* Color de fondo gris claro */
+  position: relative; /* Necesario para posicionar el botón de toggle absolutamente */
+  transition: width 0.3s ease-in-out;
+  background-color: #f0f0f0;
   padding: 20px;
-  height: calc(100vh - 120px); /* Ajusta según la altura de tu Navbar y Footer combinados */
-  overflow-y: auto;
-  border-right: 1px solid #ddd; /* Borde derecho para separarlo del contenido */
+  height: calc(100vh - 120px); /* Asumiendo que Navbar y Footer tienen 60px de alto cada uno */
+  border-right: 1px solid #ddd;
 }
+
+.sidebar--open {
+  width: 250px;
+}
+
+.sidebar--closed {
+  width: 50px; /* Ancho del sidebar cuando está cerrado, solo para el botón */
+  padding: 20px 0; /* Ajustar padding cuando está cerrado */
+}
+
+.sidebar__toggle-btn {
+  position: absolute;
+  top: 10px;
+  /* Se posicionará a la derecha del sidebar colapsado o expandido */
+  right: -15px; /* Ajusta este valor para que el botón sobresalga un poco */
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-left: none; /* Para que se fusione con el borde del sidebar */
+  padding: 10px 5px;
+  cursor: pointer;
+  z-index: 100; /* Asegurar que esté sobre otros elementos */
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.sidebar--closed .sidebar__toggle-btn {
+    right: -20px; /* Ajustar para que el botón sea visible cuando el sidebar está cerrado */
+}
+
+/* .sidebar__content no necesita estilos específicos aquí ya que se controla por JSX */
 
 .sidebar-logo {
   text-align: center;
@@ -14,7 +46,7 @@
 }
 
 .sidebar-logo img {
-  width: 80px; /* Ajusta el tamaño del logo según necesites */
+  width: 80px;
   height: auto;
 }
 
@@ -30,7 +62,7 @@
 
 .sidebar-nav a {
   text-decoration: none;
-  color: #333; /* Color de texto oscuro */
+  color: #333;
   display: block;
   padding: 10px 15px;
   border-radius: 4px;
@@ -38,6 +70,6 @@
 }
 
 .sidebar-nav a:hover {
-  background-color: #e0e0e0; /* Color de fondo al pasar el mouse */
+  background-color: #e0e0e0;
   color: #000;
 }
